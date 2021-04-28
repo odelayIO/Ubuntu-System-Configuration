@@ -29,7 +29,8 @@ apt-get -y install -q \
   apt-transport-https \
   ca-certificates \
   curl \
-  gnupg
+  gnupg \
+  xrdp
 
 rm -fr /var/lib/apt/lists/*
 
