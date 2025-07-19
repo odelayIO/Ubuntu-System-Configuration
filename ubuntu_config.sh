@@ -23,7 +23,7 @@ apt-get -y install -q \
   putty \
   x11-apps \
   openssh-server \
-  vim-gnome \
+  vim-gtk3 \
   samba \
   python-setuptools \
   apt-transport-https \
@@ -38,14 +38,18 @@ rm -fr /var/lib/apt/lists/*
 #   Install Docker 
 #     (https://docs.docker.com/engine/install/ubuntu/)
 #----------------------------------------------------------------
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo \
-  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt-get update
-apt-get install docker-ce docker-ce-cli containerd.io
-groupadd docker
-usermod -aG docker sdr
+# Add Docker's official GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Add Docker repository
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Update package list again and install Docker
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io -y
+
+# Test Docker installation
+#sudo docker run hello-world
 
 
 #----------------------------------------------------------------
