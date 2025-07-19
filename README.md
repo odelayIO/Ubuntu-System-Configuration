@@ -8,9 +8,9 @@ I have been using Ubuntu as my baseline for all home projects and just wanted to
 
 ### Ubuntu ISO File
 
-This script was tested with Ubuntu Desktop 18.04 operating system.  This ISO image can be downloaded using the below link:
+This script was tested with Ubuntu Desktop 22.04 operating system.  This ISO image can be downloaded using the below link:
 
-http://old-releases.ubuntu.com/releases/18.04.4/ubuntu-18.04-desktop-amd64.iso
+https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.iso
 
 
 
